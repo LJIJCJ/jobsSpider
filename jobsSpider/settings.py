@@ -13,7 +13,7 @@ BOT_NAME = 'jobsSpider'
 
 SPIDER_MODULES = ['jobsSpider.spiders']
 NEWSPIDER_MODULE = 'jobsSpider.spiders'
-
+COMMANDS_MODULE = 'jobsSpider.commands'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'jobsSpider (+http://www.yourdomain.com)'
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'jobsSpider.pipelines.JobsspiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'jobsSpider.pipelines.JobsspiderPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +88,11 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Mysql数据库的配置信息
+MYSQL_HOST = 'www.guzal.cc'
+MYSQL_DBNAME = 'jobs'  # 数据库名字
+MYSQL_USER = 'root'  # 数据库账号
+MYSQL_PASSWD = '88888888'  # 数据库密码
+
+MYSQL_PORT = 3306  # 数据库端口
