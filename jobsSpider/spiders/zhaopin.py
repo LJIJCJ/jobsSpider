@@ -2,6 +2,7 @@
 import scrapy
 import time
 from jobsSpider.items import JobsspiderItem
+from jobsSpider.common import printf
 
 
 class ZhaopinSpider(scrapy.Spider):
@@ -16,10 +17,10 @@ class ZhaopinSpider(scrapy.Spider):
         return [self.next_request()]
 
     def parse(self, response):
-        print("request -> " + response.url)
+        print("开始请求 -> " + response.url)
         job_list = response.css('table.newlist > tr')
         if (len(job_list) > 1):
-            print("zhaopin Nums:" + str(len(job_list)))
+            print("智联招聘 第" +str(self.curPage)+ "页职位总数:" + str(len(job_list)))
             i = 0;
             for job in job_list:
                 i += 1
@@ -50,9 +51,9 @@ class ZhaopinSpider(scrapy.Spider):
     def next_request(self):
         self.curPage += 1
         if (self.curPage <= 10):
-            self.positionUrl = "http://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E9%83%91%E5%B7%9E&kw=php&sm=0&fl=719&isadv=0&sb=1&isfilter=1&et=2&p=" + str(
+            self.positionUrl = "http://sou.zhaopin.com/jobs/searchresult.ashx?jl=成都&kw=php&sm=0&fl=719&isadv=0&sb=1&isfilter=1&et=2&p=" + str(
                 self.curPage)
-            print("zhaopin page:" + str(self.curPage))
+            printf("智联招聘",str(self.curPage))
             time.sleep(10)
             return scrapy.http.FormRequest(self.positionUrl,
                                            headers=self.headers,

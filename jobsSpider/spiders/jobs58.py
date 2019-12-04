@@ -3,6 +3,7 @@ import scrapy
 import time
 from jobsSpider.items import JobsspiderItem
 import math
+from jobsSpider.common import printf
 
 
 class Job58Spider(scrapy.Spider):
@@ -17,10 +18,11 @@ class Job58Spider(scrapy.Spider):
         return [self.next_request()]
 
     def parse(self, response):
-        print("request -> " + response.url)
+        print("开始请求 -> " + response.url)
         job_list = response.css('li.job_item')
         if (len(job_list) > 0):
             print("job58 Nums:" + str(len(job_list)))
+            print("58同城 第" +str(self.curPage)+ "页职位总数:" + str(len(job_list)))
             for job in job_list:
                 item = JobsspiderItem()
                 item['time'] = job.css('span.sign::text').extract_first().strip()
@@ -65,7 +67,7 @@ class Job58Spider(scrapy.Spider):
         self.curPage += 1
         if (self.curPage > 1):
             self.positionUrl = "http://zz.58.com/job/pn" + str(self.curPage) + "/?key=php&final=1&jump=1"
-        print("job58 page:" + str(self.curPage))
+        printf("58同城",str(self.curPage))
         time.sleep(10)
         return scrapy.http.FormRequest(
             self.positionUrl,

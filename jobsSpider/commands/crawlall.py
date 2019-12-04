@@ -2,7 +2,7 @@
 # @Author: Mardan
 # @Date:   2019-12-03 10:32:17
 # @Last Modified by:   Mardan
-# @Last Modified time: 2019-12-03 10:43:48
+# @Last Modified time: 2019-12-04 08:52:24
 
 from scrapy.commands import ScrapyCommand
 

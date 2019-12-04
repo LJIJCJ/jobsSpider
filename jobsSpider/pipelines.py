@@ -46,5 +46,8 @@ class JobsspiderPipeline(object):
             tx.execute(sql, params)
 
     def _handle_error(self, failue, item, spider):
-        print(item)
-        print(failue)
+        print(  item["position_id"], item["position_name"], item["position_lables"], item["work_year"], item["salary"],
+                item["city"], item["education"], item["company_name"], item["industry_field"],
+                item["finance_stage"], item["company_size"], item["updated_at"], item["time"],
+                item["platform"], item["avg_salary"])
+        #print(failue)
