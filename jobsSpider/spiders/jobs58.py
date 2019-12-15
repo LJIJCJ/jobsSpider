@@ -68,7 +68,7 @@ class Job58Spider(scrapy.Spider):
         if (self.curPage > 1):
             self.positionUrl = "http://zz.58.com/job/pn" + str(self.curPage) + "/?key=php&final=1&jump=1"
         printf("58同城",str(self.curPage))
-        time.sleep(10)
+        time.sleep(5)
         return scrapy.http.FormRequest(
             self.positionUrl,
             headers=self.headers,

@@ -65,7 +65,7 @@ class Job51Spider(scrapy.Spider):
         self.positionUrl = "http://search.51job.com/list/170200,000000,0000,00,9,99,php,2," + str(
             self.curPage) + ".html"
         printf("前程无忧",str(self.curPage))
-        time.sleep(10)
+        time.sleep(5)
         return scrapy.http.FormRequest(self.positionUrl,
                                        headers=self.headers,
                                        callback=self.parse)

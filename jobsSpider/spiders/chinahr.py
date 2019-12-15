@@ -51,7 +51,7 @@ class ChinahrSpider(scrapy.Spider):
         self.positionUrl = "http://www.chinahr.com/sou/?orderField=relate&keyword=c&city=312&page=" + str(
             self.curPage)
         printf("中华英才网",str(self.curPage))
-        time.sleep(10)
+        time.sleep(5)
         return scrapy.http.FormRequest(
             self.positionUrl,
             headers=self.headers,

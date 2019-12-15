@@ -96,3 +96,6 @@ MYSQL_USER = 'root'  # 数据库账号
 MYSQL_PASSWD = '88888888'  # 数据库密码
 
 MYSQL_PORT = 3306  # 数据库端口
+
+
+SQLITE_NAME = 'jobs'

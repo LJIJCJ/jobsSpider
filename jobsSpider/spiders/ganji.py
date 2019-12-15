@@ -56,7 +56,7 @@ class GanjiSpider(scrapy.Spider):
         num = (self.curPage - 1) * 32
         self.positionUrl = 'http://zz.ganji.com/zhaopin/s/f' + str(num) + '/_php/'
         printf("赶集",str(self.curPage))
-        time.sleep(10)
+        time.sleep(5)
         return scrapy.http.FormRequest(
             self.positionUrl,
             headers=self.headers,

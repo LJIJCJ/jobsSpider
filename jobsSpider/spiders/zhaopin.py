@@ -54,7 +54,7 @@ class ZhaopinSpider(scrapy.Spider):
             self.positionUrl = "http://sou.zhaopin.com/jobs/searchresult.ashx?jl=成都&kw=php&sm=0&fl=719&isadv=0&sb=1&isfilter=1&et=2&p=" + str(
                 self.curPage)
             printf("智联招聘",str(self.curPage))
-            time.sleep(10)
+            time.sleep(5)
             return scrapy.http.FormRequest(self.positionUrl,
                                            headers=self.headers,
                                            callback=self.parse)

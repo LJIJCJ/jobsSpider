@@ -56,7 +56,7 @@ class ZhipinSpider(scrapy.Spider):
     def next_request(self):
         self.curPage += 1
         printf("BOSS直聘",str(self.curPage))
-        time.sleep(10)
+        time.sleep(5)
         return scrapy.http.FormRequest(
             self.positionUrl + ("&page=%d&ka=page-%d" %
                                 (self.curPage, self.curPage)),

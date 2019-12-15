@@ -62,7 +62,7 @@ class LagouSpider(scrapy.Spider):
                 if (self.curPage <= totalPage):
                     yield self.next_request()
         else:
-            time.sleep(60)
+            time.sleep(5)
             yield self.next_request()
 
     def next_request(self):
